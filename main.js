@@ -9,22 +9,29 @@ const app = new Vue({
     el: '#root',
     data: {
         email: '',
+        lista: [],
+        counter: 10,
     },
     methods: {},
     mounted() {
-        axios
+        for(let i = 0; i < this.counter; i++) {
+            axios
             .get("https://flynn.boolean.careers/exercises/api/random/mail")
             .then((pippo) => {
                 // pippi è l'elemento che passo alla funzione
+                // console.log(pippo);
                 // data è l'oggetto all'interno dell'elemento 'pippo'
+                // console.log(pippo.data);
                 // response è l'elemento che ci serve, ovvero l'email
-                console.log(pippo);
-                console.log(pippo.data);
-                console.log(pippo.data.response);
-
+                // console.log(pippo.data.response);
+    
                 this.email = pippo.data.response;
+                // pushamo l'email nella lista stanziata vuota 
+                this.lista.push(this.email);
+
                 console.log(this.email);
             })
+        }
     },
 })
 

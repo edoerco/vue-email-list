@@ -11,9 +11,10 @@
 <body>
     
     <div id="root">
-        <ul>
-            <li>{{email}}</li>
-        </ul>
+        <ol v-if="lista.length == counter">
+            <!-- 'mail' è l'elemento che vogliamo; 'lista' è l'array che abbiamo stranziato -->
+            <li v-for="mail in lista">{{mail}}</li>
+        </ol>
     </div>
 
     <script src="main.js"></script>
